@@ -1,21 +1,36 @@
-@model Contacto
-<form asp-asp-controller="Contacto" asp-action="Create">
-    <label asp-for="FirstName" class="control-label"></label>
-    <input asp-for="FirstName" class="form-control" />
+@model IEnumerable<appventas.Models.Contacto>
 
-    <label asp-for="LastName" class="control-label"></label>
-    <input asp-for="LastName" class="form-control" />
+<h2>Lista Contactos</h2>
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">
+                #
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">
+                    #
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem =>itemName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem =>itemName)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 
-    <label asp-for="Email" class="control-label"></label>
-    <input asp-for="Email" class="form-control" />
-
-    <label asp-for="Phone" class="control-label"></label>
-    <input asp-for="Phone" class="form-control" />
-
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Registrar</button>
-    </div>
-
-
-</form>
 <h1>@ViewData["Message"]</h1>

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using appventas.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -15,8 +16,12 @@ namespace appventas.Controllers
 
         public IActionResult Index()
         {
+            var listcontactos= new List<Contacto>();
+            listcontactos.Add(new Contacto(){FirstName="Juan", LastName="Perez"});
+            listcontactos.Add(new Contacto(){FirstName="Bod", LastName="Marley"});
+            listcontactos.Add(new Contacto(){FirstName="Kurth", LastName="Santa"});
             ViewData["Message"]=" ";
-            return View();
+            return View(listcontactos);
         }
         [HttpPost]
          public IActionResult Create(Contacto objContacto)
