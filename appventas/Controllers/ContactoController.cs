@@ -23,8 +23,13 @@ namespace appventas.Controllers
             ViewData["Message"]=" ";
             return View(listcontactos);
         }
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
         [HttpPost]
-         public IActionResult Create(Contacto objContacto)
+        public IActionResult Create(Contacto objContacto)
         {
             objContacto.Status="Registrado";
             ViewData["Message"]="El contacto ya esta "+ objContacto.Status;
