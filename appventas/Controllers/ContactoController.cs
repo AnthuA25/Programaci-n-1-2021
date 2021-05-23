@@ -1,3 +1,4 @@
+using appventas.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -14,10 +15,14 @@ namespace appventas.Controllers
 
         public IActionResult Index()
         {
+            ViewData["Message"]=" ";
             return View();
         }
-         public IActionResult Create()
+        [HttpPost]
+         public IActionResult Create(Contacto objContacto)
         {
+            objContacto.Status="Registrado";
+            ViewData["Message"]="El contacto ya esta "+ objContacto.Status;
             return View("Index");
         }
     }
