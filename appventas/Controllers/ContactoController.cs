@@ -33,7 +33,7 @@ namespace appventas.Controllers
         {
             objContacto.Status="Registrado";
             ViewData["Message"]="El contacto ya esta "+ objContacto.Status;
-            return View("Index");
+            return View();
         }
     }
 }
